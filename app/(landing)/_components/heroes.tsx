@@ -8,7 +8,13 @@ export const Heroes = () =>{
                     <Image 
                         src="/hero3.png"
                         fill
-                        className="object-contain"
+                        className="object-contain dark:hidden"
+                        alt="Documents"
+                    />
+                    <Image 
+                        src="/hero3_dark.png"
+                        fill
+                        className="object-contain hidden dark:block"
                         alt="Documents"
                     />
                 

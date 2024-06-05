@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/Theme/theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Zettel Vault",
   description: "A productivity app.",
-  icons:{
-    icon:[
+  icons: {
+    icon: [
       {
-        media:"(prefers-color-scheme: light)",
-        url:"/light.svg",
-        href:"/light.svg"
+        media: "(prefers-color-scheme: light)",
+        url: "/light.svg",
+        href: "/light.svg"
       },
       {
-        media:"(prefers-color-scheme: dark)",
-        url:"/dark.svg",
-        href:"/dark.svg"
+        media: "(prefers-color-scheme: dark)",
+        url: "/dark.svg",
+        href: "/dark.svg"
       },
     ]
   }
@@ -29,8 +30,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="zettel-1"
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
