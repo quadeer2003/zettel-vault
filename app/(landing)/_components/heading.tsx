@@ -8,7 +8,7 @@ const font = Aclonica({
 });
 export const Heading = () => {
     return (
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-4 text-center">
             <div className={font.className}>
                 <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold">
                     Supercharge your productivity with our BASB based app!

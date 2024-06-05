@@ -3,11 +3,11 @@ import { Navbar } from "./_components/navbar";
 const LandingPageLayout = ({
     children
 }: {
-    children:React.ReactNode;
-}) =>{
-    return(
+    children: React.ReactNode;
+}) => {
+    return (
         <div className="h-full">
-            <Navbar/>
+            <Navbar />
             <main className="h-full pt-40">
                 {children}
             </main>
