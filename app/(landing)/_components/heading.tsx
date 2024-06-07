@@ -1,7 +1,7 @@
 "use client";
 import { Aclonica } from "next/font/google";
 
-import { cn } from "@/lib/utils";
+
 const font = Aclonica({
     weight: '400',
     subsets: ['latin']
