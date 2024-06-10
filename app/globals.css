@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 
-@layer base {
-  :root {
+/* @layer base { */
+  /* :root {
     --background: 124 52.1% 90.36%;
     --foreground: 126 76% 1%;
     --muted: 246 7% 92%;
@@ -48,9 +48,9 @@
     --destructive-foreground: 0 0% 100%;
     --ring: 134 91% 38%;
   }
-}
+} */
 
-/* @layer base {
+@layer base {
     :root {
       --background: 0 0% 100%;
       --foreground: 240 10% 3.9%;
@@ -112,7 +112,7 @@
       --input: 240 3.7% 15.9%;
       --ring: 240 4.9% 83.9%;
     }
-  } */
+  }
 
 @layer base {
   * {

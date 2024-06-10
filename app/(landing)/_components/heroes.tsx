@@ -12,7 +12,7 @@ export const Heroes = () => {
                         alt="Documents"
                     />
                     <Image
-                        src="/hero3_dark.png"
+                        src="/hero3-g.png"
                         fill
                         className="object-contain hidden dark:block"
                         alt="Documents"
