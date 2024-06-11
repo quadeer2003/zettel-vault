@@ -24,7 +24,7 @@ const VaultLayout = ({
 
     return (
         <div className="h-screen flex">
-            <div className="flex">
+            {/* <div className="flex"> */}
                 {/* <div>
                     <Navbar1 />
                 </div> */}
@@ -32,7 +32,7 @@ const VaultLayout = ({
                     <Navigation />
                 
                 
-            </div>
+            {/* </div> */}
 
             <main className="flex-1 h-full overflow-y-auto">
                 {children}
