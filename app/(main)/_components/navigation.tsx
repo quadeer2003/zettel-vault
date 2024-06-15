@@ -7,7 +7,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { api } from "@/convex/_generated/api";
-
+import { toast } from "sonner";
 import {
     ChevronsLeft,
     MenuIcon,
@@ -18,6 +18,8 @@ import {
     Trash,
 } from "lucide-react";
 import { UserItem } from "./user-item";
+import { Item } from "./item";
+import { VaultList } from "./vault-list";
 
 
 const Navigation = () => {
@@ -26,7 +28,7 @@ const Navigation = () => {
     const pathname = usePathname();
     const params = useParams();
     const isMobile = useMediaQuery("(max-width: 768px)");
-
+    const create = useMutation(api.vaults.create);
 
     const isResizingRef = useRef(false);
     const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -109,14 +111,21 @@ const Navigation = () => {
             setTimeout(() => setIsResetting(false), 300);
         }
     };
-
+    const handleCreate =()=>{
+        const promise = create({ title: "Empty Zettel"});
+        toast.promise(promise,{
+            loading:"Creating an empty zettel",
+            success:"Empty zettel created",
+            error:"something went wrong!"
+        });
+    }
 
     return (
         <>
             <aside
                 ref={sidebarRef}
                 className={cn(
-                    "group/sidebar relative z-[9999] flex h-full w-60 flex-col overflow-y-auto bg-secondary",
+                    "group/sidebar relative z-[9999] flex top-12 fixed h-full w-60 flex-col overflow-y-auto bg-secondary",
                     isResetting && "transition-all duration-300 ease-in-out",
                     isMobile && "w-0",
                 )}
@@ -132,11 +141,23 @@ const Navigation = () => {
                 >
                     <ChevronsLeft className="h-6 w-6" />
                 </div>
-                <div>
-                    <UserItem/>
-                </div>
+                {/* <div>
+                    <UserItem />
+                </div> */}
+                <Item
+                label="search"
+                icon={Search}
+                isSearch
+                onClick={()=>{}}
+                />
+
+                <Item
+                    onClick={handleCreate}
+                    label="Add"
+                    icon={Plus}
+                />
                 <div className="mt-4">
-                    <p>documents</p>
+                    <VaultList/>
                 </div>
 
                 <div
@@ -148,14 +169,14 @@ const Navigation = () => {
             <div
                 ref={navbarRef}
                 className={cn(
-                    "absolute left-60 top-0 z-[300] w-[calc(100%-240px)]",
+                    "absolute left-60  top-12 z-[300] w-40 bg-yellow-600",
                     isResetting && "transition-all duration-300 ease-in-out",
                     isMobile && "left-0 w-full",
                 )}
             >
                 <nav
                     className={cn(
-                        "w-full bg-transparent px-3 py-2",
+                        "w-40 bg-transparent px-3 py-2 bg-red-900",
                         !isCollapsed && "p-0",
                     )}
                 >

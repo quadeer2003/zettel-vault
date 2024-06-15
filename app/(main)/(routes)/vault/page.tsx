@@ -1,9 +1,11 @@
 "use client";
+import { useUser } from "@clerk/clerk-react";
 import { Navbar1 } from "../../_components/navbar1";
 import { UserItem } from "../../_components/user-item";
 import Image from "next/image";
 
 const Vault = () => {
+    const {user} = useUser();
     return (
         <div className="h-full">
             
