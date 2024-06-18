@@ -10,16 +10,24 @@ import { api } from "@/convex/_generated/api";
 import { toast } from "sonner";
 import {
     ChevronsLeft,
+    FileSearch,
     MenuIcon,
     Plus,
     PlusCircle,
     Search,
+    SearchCheck,
     Settings,
     Trash,
+    Trash2,
 } from "lucide-react";
+
+import { Popover,PopoverContent,PopoverTrigger } from "@/components/ui/popover";
 import { UserItem } from "./user-item";
 import { Item } from "./item";
 import { VaultList } from "./vault-list";
+import { TrashBox } from "./trashBox";
+import { searchFunc } from "@/hooks/search";
+import { Navbar } from "./navbar";
 
 
 const Navigation = () => {
@@ -29,6 +37,7 @@ const Navigation = () => {
     const params = useParams();
     const isMobile = useMediaQuery("(max-width: 768px)");
     const create = useMutation(api.vaults.create);
+    const search = searchFunc();
 
     const isResizingRef = useRef(false);
     const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -125,8 +134,8 @@ const Navigation = () => {
             <aside
                 ref={sidebarRef}
                 className={cn(
-                    "group/sidebar relative z-[9999] flex top-12 fixed h-full w-60 flex-col overflow-y-auto bg-secondary",
-                    isResetting && "transition-all duration-300 ease-in-out",
+                    "group/sidebar relative z-[9999] flex  h-full w-60 flex-col overflow-y-auto bg-secondary rounded-r-2xl",
+                    isResetting && "transition-all duration-300 ease-in-out ",
                     isMobile && "w-0",
                 )}
             >
@@ -146,9 +155,9 @@ const Navigation = () => {
                 </div> */}
                 <Item
                 label="search"
-                icon={Search}
+                icon={FileSearch}
                 isSearch
-                onClick={()=>{}}
+                onClick={search.onOpen}
                 />
 
                 <Item
@@ -158,6 +167,20 @@ const Navigation = () => {
                 />
                 <div className="mt-4">
                     <VaultList/>
+                    {/* <Item 
+                    onClick={handleCreate}
+                    label="New Page"
+                    icon={Plus}
+                    /> */}
+                    <Popover>
+                        <PopoverTrigger className="w-full mt-4">
+                            <Item label="Trash" icon={Trash2}/>
+                        </PopoverTrigger>
+                        <PopoverContent className="p-0 w-72`" side={isMobile? "bottom":"right"}>
+                            <TrashBox/>
+                        </PopoverContent>
+                    </Popover>
+                    
                 </div>
 
                 <div
@@ -169,14 +192,24 @@ const Navigation = () => {
             <div
                 ref={navbarRef}
                 className={cn(
-                    "absolute left-60  top-12 z-[300] w-40 bg-yellow-600",
+                    "absolute left-60 z-[99999] w-[calc(100%-240px)]",
                     isResetting && "transition-all duration-300 ease-in-out",
                     isMobile && "left-0 w-full",
                 )}
             >
+                {!!params.documentId?(
+                    <div >
+                         <Navbar
+                        isCollapsed={isCollapsed}
+                        onResetWidth={resetWidth}
+                    
+                    />
+                    </div>
+                   
+                ):(
                 <nav
                     className={cn(
-                        "w-40 bg-transparent px-3 py-2 bg-red-900",
+                        "w-40 bg-transparent px-3 py-2 ",
                         !isCollapsed && "p-0",
                     )}
                 >
@@ -188,6 +221,7 @@ const Navigation = () => {
                         />
                     )}
                 </nav>
+                )}
 
             </div>
         </>

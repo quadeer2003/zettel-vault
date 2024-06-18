@@ -7,7 +7,7 @@ import Image from "next/image";
 const Vault = () => {
     const {user} = useUser();
     return (
-        <div className="h-full">
+        <div className="h-full ">
             
 
             <div className="h-full flex flex-col items-center justify-center space-y-4">

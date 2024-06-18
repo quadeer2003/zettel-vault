@@ -9,11 +9,13 @@ import { SignInButton, UserButton } from "@clerk/clerk-react";
 import Link from "next/link";
 import { UserItem } from "./user-item";
 import { Item } from "./item";
-import { Search } from "lucide-react";
+import { FileSearch, Search } from "lucide-react";
+import { searchFunc } from "@/hooks/search";
 
 export const Navbar1 = () => {
     const scrolled = useScrollTop();
     const { isAuthenticated, isLoading } = useConvexAuth();
+    const search = searchFunc();
 
     return (
         <div className={cn("z-50 bg-background fixed top-0 flex items-center w-full p-1", scrolled && "border-b shadow-sm")}>
@@ -25,7 +27,7 @@ export const Navbar1 = () => {
                             label="search"
                             icon={Search}
                             isSearch
-                            onClick={() => { }}
+                            onClick={search.onOpen}
                         />
                     </div>
                     {isAuthenticated && !isLoading && (

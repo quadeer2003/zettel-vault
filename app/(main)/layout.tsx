@@ -3,6 +3,7 @@ import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import Navigation from "./_components/navigation";
 import { Navbar1 } from "./_components/navbar1";
+import { SearchCommand } from "@/components/searchCommand";
 
 const VaultLayout = ({
     children
@@ -24,15 +25,16 @@ const VaultLayout = ({
 
     return (
         <div className="h-screen flex">
-                <div className="p-0">
+                {/* <div className="p-0">
                     <Navbar1 />
-                </div>
+                </div> */}
 
                     <Navigation />
                 
 
 
             <main className="flex-1 h-full overflow-y-auto">
+                <SearchCommand/>
                 {children}
 
             </main>

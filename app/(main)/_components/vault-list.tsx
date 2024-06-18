@@ -32,7 +32,7 @@ export const VaultList = ({
         parentDocument: parentDocumentId
     });
     const onRedirect = (documentId: string) => {
-        router.push(`/vaults/${documentId}`);
+        router.push(`/vault/${documentId}`);
     };
 
     if (vaults === undefined) {
