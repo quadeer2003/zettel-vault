@@ -4,7 +4,7 @@ import { BlockNoteEditor, PartialBlock } from "@blocknote/core"
 // import "@blocknote/core/fonts/inter.css";
 import { useCreateBlockNote } from "@blocknote/react"
 // import { BlockNoteView } from "@blocknote/shadcn"
-import { BlockNoteView } from "@blocknote/mantine";
+import { BlockNoteView, lightDefaultTheme } from "@blocknote/mantine";
 import "@blocknote/mantine/style.css";
 // import "@blocknote/shadcn/style.css"
 import { useTheme } from "next-themes"
@@ -50,6 +50,7 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
             editor={editor}
             editable={editable}
             onChange={() => onChange(JSON.stringify(editor.document, null, 2))}
+            theme={resolvedTheme === 'dark' ? 'dark' : 'light'}
             data-theming-css-variables-demo
             className="z-[9999]"
         />

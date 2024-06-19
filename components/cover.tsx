@@ -38,7 +38,7 @@ export function Cover ({url,preview}:CoverProps) {
   }
 
 return (
-    <div className={cn(`relative mx-auto w-5/6 h-44 md:w-7/12 group top-14`,
+    <div className={cn(`relative mx-auto w-5/6 h-44 md:w-7/12 group top-28`,
     !url && 'h-[12vh]',
     url)}>
       {!!url && (

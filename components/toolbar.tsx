@@ -103,12 +103,12 @@ return (
         )}
       </div>
       {isEditing && !preview ? (
-        <TextAreaAutoSize className="text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF]
+        <TextAreaAutoSize className="text-3xl pt-12 bg-transparent font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF]
         resize-none"
          ref={inputRef} onBlur={disableInput} onKeyDown={onKeyDown} value={value}
         onChange={e => onInput(e.target.value)}/>
       ) : (
-        <div className="pb-[11.5px] text-3xl font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF]" onClick={enableInput}>
+        <div className="pb-[11.5px] pt-12 text-3xl font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF]" onClick={enableInput}>
           {initialData.title}
         </div>
       )}

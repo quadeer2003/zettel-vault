@@ -41,7 +41,7 @@ export function SearchCommand() {
     }, [toggle])
 
     const onSelect = (id: string) => {
-        router.push(`/vaults/${id}`)
+        router.push(`/vault/${id}`)
         onClose()
     }
 
@@ -58,7 +58,7 @@ export function SearchCommand() {
                     <CommandGroup heading='vaults'>
                         {vaults?.map(vault => (
                             <CommandItem key={vault._id} value={`${vault._id}-${vault.title}`}
-                                title={vault.title} onSelect={onSelect}>
+                                title={vault.title} onSelect={() => onSelect(vault._id)}>
                                 {vault.icon ? (
                                     <p className="mr-2 text-[18px]">
                                         {vault.icon}

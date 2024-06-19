@@ -134,7 +134,7 @@ const Navigation = () => {
             <aside
                 ref={sidebarRef}
                 className={cn(
-                    "group/sidebar relative z-[9999] flex  h-full w-60 flex-col overflow-y-auto bg-secondary rounded-r-2xl",
+                    "group/sidebar relative z-[9999] flex top-14 h-full w-60 flex-col overflow-y-auto bg-secondary rounded-r-2xl",
                     isResetting && "transition-all duration-300 ease-in-out ",
                     isMobile && "w-0",
                 )}
@@ -192,7 +192,7 @@ const Navigation = () => {
             <div
                 ref={navbarRef}
                 className={cn(
-                    "absolute left-60 z-[99999] w-[calc(100%-240px)]",
+                    "absolute left-60 z-[99999] w-[calc(100%-240px)] top-12",
                     isResetting && "transition-all duration-300 ease-in-out",
                     isMobile && "left-0 w-full",
                 )}
@@ -209,7 +209,7 @@ const Navigation = () => {
                 ):(
                 <nav
                     className={cn(
-                        "w-40 bg-transparent px-3 py-2 ",
+                        "w-40 bg-transparent px-3 py-2 top-14",
                         !isCollapsed && "p-0",
                     )}
                 >
@@ -217,7 +217,7 @@ const Navigation = () => {
                         <MenuIcon
                             onClick={resetWidth}
                             role="button"
-                            className="h-6 w-6 text-muted-foreground"
+                            className="h-6 w-6 text-muted-foreground top-14"
                         />
                     )}
                 </nav>

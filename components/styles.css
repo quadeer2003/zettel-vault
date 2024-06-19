@@ -1,5 +1,5 @@
 /* Base theme */
-.bn-container[data-theming-css-variables-demo][data-color-scheme] {
+.bn-container[data-theming-css-variables-demo][data-color-scheme="light"] {
     --bn-colors-editor-text: #020817;
     --bn-colors-editor-background: #e5fbff;
     --bn-colors-menu-text: #000000;
