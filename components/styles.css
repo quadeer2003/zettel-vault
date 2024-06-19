@@ -7,11 +7,11 @@
     --bn-colors-tooltip-text: #0e0f0f;
     --bn-colors-tooltip-background: #e5fbff;
     --bn-colors-hovered-text: #0b0d0e;
-    --bn-colors-hovered-background: #9cc2c9;
+    --bn-colors-hovered-background: #4a838f;
     --bn-colors-selected-text: #da1010;
-    --bn-colors-selected-background: #2cb5b9;
+    --bn-colors-selected-background: #263131;
     --bn-colors-disabled-text: #9b0000;
-    --bn-colors-disabled-background: #7d0000;
+    --bn-colors-disabled-background: #42615e;
     --bn-colors-shadow: #131111;
     --bn-colors-border: #050505;
     --bn-colors-side-menu: #000000;
