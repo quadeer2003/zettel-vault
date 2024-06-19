@@ -70,8 +70,8 @@ export function Publish ({initialData}:PublishProps) {
 return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button size='sm' variant='ghost'>
-          Publish
+        <Button size='sm' variant='default'>
+          SHARE
           {initialData.isPublished && <Globe className="text-sky-500 w-4 h-4 ml-2"/>}
         </Button>
       </PopoverTrigger>
@@ -81,7 +81,7 @@ return (
             <div className="flex gap-x-2 items-center">
               <Globe className="text-sky-500 animate-pulse w-4 h-4"/>
               <p className="text-xs font-medium text-sky-500">
-                This note live on web
+                Static site is active
               </p>
             </div>
             <div className="flex items-center">
