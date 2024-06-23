@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Zettel Vault",
-  description: "A productivity app.",
+  description: "A productivity app made by Quadeer and team.",
   icons: {
     icon: [
       {
